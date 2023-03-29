@@ -14,6 +14,7 @@ FROM
       COUNT(*) as "Total Requests",
       (AVG("time-taken") / 1000) as "Average Time(s)",
       "cs-uri-stem" as "Path",
+	  SUBSTRING_INDEX(REPLACE(path, SUBSTRING_INDEX(path, '/', 3), ''), '/', -1) AS cleaned_path,
       "cs-method" as "Type"
     FROM
       all_iis_logs
