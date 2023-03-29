@@ -22,8 +22,3 @@ FROM
       "Hour",
       "cs-uri-stem"
   )
-GROUP BY
-  "Path",
-  "Type"
-ORDER BY
-  "Max Avg Time" DESC
